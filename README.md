@@ -1,5 +1,5 @@
-823217769 - Gabriel Mendes Arruda
-823212604 - Guilherme Dias Cavalcante
-825146605 - Nathan Rodrigues Rocha
-Sabrina Lopes Palmito
-825156593 - Victor Vendramini Pagnotta
+(Gabriel Mendes Arruda 823217769) 
+(Guilherme Dias Cavalcante 823212604) 
+(Nathan Rodrigues Rocha 825146605) 
+(Sabrina Lopes Palmito 82327998)
+(Victor Vendramini Pagnotta 825156593)

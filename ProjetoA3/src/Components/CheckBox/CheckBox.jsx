@@ -18,7 +18,7 @@ const MultiSelect = () => {
   };
 
   return (
-    <div className="flex flex-col gap-4 p-6">
+    <div className="absolute flex-col gap-4 p-4">
        
         <h1 className="font-semibold mb-4 text-white justify-center">Sejam Bem-vindos ao IBOOKS</h1>
 

@@ -7,6 +7,7 @@ import 'tailwindcss/theme.css'
 import { BrowserRouter, Route, Routes } from 'react-router'
 import Home from './pages/home/Home'
 import Navbar from './Components/Navbar/Navbar'
+import MeusLivros from './pages/MeusLivros/MeusLivros'
 
 function App() {  
   return( 
@@ -15,6 +16,7 @@ function App() {
     <Navbar/>
     <Routes>
       <Route  path='/' element={<Home/>} />
+      <Route  path='/meuslivros' element={<MeusLivros/>} />
     </Routes>
     </BrowserRouter>
     </>

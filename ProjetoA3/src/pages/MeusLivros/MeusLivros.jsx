@@ -1,26 +1,21 @@
+import { useEffect, useState } from 'react';
 import Banner from '../../Components/Banner/Banner'
+import axios from 'axios'
 
 const MeusLivros = () => {
+  const [resposta, setResposta] = useState('');
 
-  
+  useEffect(() => {
+    axios.get('http://localhost:3000/resposta-gemini')
+      .then(res => setResposta(res.data.resposta))
+      .catch(err => setResposta('Erro ao buscar resposta'));
+  }, []);
+
   return (
     <div>
       <div className='absolute flex-col gap-4 p-4 text-white'>
-        <h1 className='text-3xl font-bold'>Aqui estão os seus 12 livros baseado na sua escolha:</h1>
-        <ul>
-          <li className='text-2xl'>1. senhor dos aneis</li>
-          <li className='text-2xl'>2. harry potter</li>
-          <li className='text-2xl'>3. a guerra dos tronos</li>
-          <li className='text-2xl'>4. o hobbit</li>
-          <li className='text-2xl'>5. o senhor dos aneis</li>
-          <li className='text-2xl'>6. harry potter</li>
-          <li className='text-2xl'>7. a guerra dos tronos</li>
-          <li className='text-2xl'>8. o hobbit</li>
-          <li className='text-2xl'>9. o senhor dos aneis</li>
-          <li className='text-2xl'>10. harry potter</li>
-          <li className='text-2xl'>11. a guerra dos tronos</li>
-          <li className='text-2xl'>12. o hobbit</li>
-        </ul>
+        <h1 className='text-3xl font-bold'>Aqui está a sugestão baseada na sua escolha:</h1>
+        <p className='text-xl'>{resposta || 'Carregando...'}</p>
       </div>
       <Banner />
     </div>

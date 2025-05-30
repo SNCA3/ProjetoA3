@@ -2,14 +2,24 @@ import { useState } from 'react';
 import { Checkbox } from "primereact/checkbox";
 import axios from 'axios';
 import { Button } from 'primereact/button';
+import { useNavigate } from 'react-router';
 
 const MultiSelect = () => {
   const [selected, setSelected] = useState([]);
+
+  const handleCheckboxChange = (option) => {
+    if (selected.includes(option)) {
+      setSelected(selected.filter((item) => item !== option));
+    } else {
+      setSelected([...selected, option]);
+    }
+  }
 
   const enviarSelecionados = async () => {
   try {
     const response = await axios.post('http://localhost:3000/pergunte-ao-gemini', {
       selecionados: selected.join(', ')
+      
     });
     console.log(response.data);
   } catch (error) {
@@ -30,6 +40,16 @@ const MultiSelect = () => {
     }
   };
 
+  const navigate = useNavigate();
+  const handleButtonClick = () => {
+    if (selected.length > 0) {
+      enviarSelecionados();
+      navigate('/Meuslivros');
+    } else {
+      alert('Por favor, selecione pelo menos uma opção.');
+    }
+  };
+
   return (
     <div className="absolute flex-col gap-4 p-4">
        
@@ -45,14 +65,14 @@ const MultiSelect = () => {
                 onChange={() => toggleOption(option)}
                 
                 />
-                <span className="text-white text-xs">{option}</span>
+                <span className="text-white text-xs ml-1 mt-1">{option}</span>
             </label>
             ))}
         </div>
 
         <div className="mt-4">
             <p className="font-semibold mb-4 text-white justify-center">Selecionados: {selected.join(', ') || 'Nenhum'}</p>
-            <Button label='Enviar' onClick={enviarSelecionados} className="p-2 bg-blue-500 text-white rounded"/>
+            <Button label='Enviar' onClick={handleButtonClick} className=" text-white rounded"/>    
         </div>
         </div>
   );

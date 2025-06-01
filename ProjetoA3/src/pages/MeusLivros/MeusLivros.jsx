@@ -11,7 +11,6 @@ const MeusLivros = () => {
     axios.get('http://localhost:3000/resposta-gemini')
       .then(res => {
         setResposta(res.data.resposta);
-        // Exemplo de separação simples (ajuste conforme o formato real da resposta)
         const regex = /Título: (.*)\nAutor: (.*)\nGênero: (.*)\nSinopse: (.*)/is;
         const match = res.data.resposta.match(regex);
         if (match) {
@@ -28,12 +27,12 @@ const MeusLivros = () => {
 
   return (
     <div>
-      <div className='absolute flex-col gap-4 p-4 text-white'>
-        <h1 className='text-3xl font-bold'>Aqui está a sugestão baseada na sua escolha:</h1>
+      <div className='absolute flex-col gap-4 p-4 text-black '>
+        <h1 className='text-3xl font-bold '>Aqui está a sugestão baseada na sua escolha:</h1>
         {livro ? (
           <CardLivro {...livro} />
         ) : (
-          <p className='text-xl'>{resposta || 'Carregando...'}</p>
+          <p className='text-xl '>{resposta || 'Carregando...'}</p>
         )}
       </div>
       <Banner />

@@ -4,7 +4,7 @@ const SobreNos = () => {
   return (
     <div>
         <div className="absolute flex-col gap-4 p-4 text-white">
-        <p className="text-white text-2xl font-bold text-center mt-10 mb-10">
+        <p className="text-black text-2xl font-bold text-center mt-10 mb-10">
             Olá, somos a SNC (Só nos commits) uma equipe de jovens desenvolvedores apaixonados por tecnologia e livros, 
             nossa missão é ajudar você a encontrar o livro perfeito para a sua personalidade, 
             acreditamos que a leitura é uma forma poderosa de expandir horizontes e enriquecer vidas.

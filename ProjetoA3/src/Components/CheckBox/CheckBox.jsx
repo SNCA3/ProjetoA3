@@ -53,26 +53,26 @@ const MultiSelect = () => {
   return (
     <div className="absolute flex-col gap-4 p-4">
        
-        <h1 className="font-semibold mb-4 text-white justify-center">Sejam Bem-vindos ao IBOOKS</h1>
+        <h1 className="font-semibold mb-4 text-black justify-center">Sejam Bem-vindos ao IBOOKS</h1>
 
-        <h2 className="font-semibold mb-4 text-white justify-center">Escolha traços de personalidade compatíveis com a sua:</h2>
+        <h2 className="font-semibold mb-4 text-black justify-center">Escolha traços de personalidade compatíveis com a sua:</h2>
 
         <div>
             {options.map((option) => (
-            <label key={option} className="flex mb-1 items-left h-1.2rem font-bold text-white"> 
+            <label key={option} className="flex mb-1 items-left h-1.2rem font-bold text-black"> 
                 <Checkbox
                 checked={selected.includes(option)}
                 onChange={() => toggleOption(option)}
                 
                 />
-                <span className="text-white text-xs ml-1 mt-1">{option}</span>
+                <span className="text-black text-xs ml-1 mt-1">{option}</span>
             </label>
             ))}
         </div>
 
         <div className="mt-4">
-            <p className="font-semibold mb-4 text-white justify-center">Selecionados: {selected.join(', ') || 'Nenhum'}</p>
-            <Button label='Enviar' onClick={handleButtonClick} className=" text-white rounded"/>    
+            <p className="font-semibold mb-4 text-black justify-center">Selecionados: {selected.join(', ') || 'Nenhum'}</p>
+            <Button label='Enviar' onClick={handleButtonClick}/>    
         </div>
         </div>
   );

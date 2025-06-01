@@ -5,15 +5,16 @@ const Navbar = () => {
   return (
     <div>
         <div>
-        <div className='flex items-center justify-center bg-[#010203] bg-opacity-[20%]'>
+        <div className='flex items-center justify-center bg-[#ECE0D1] bg-opacity-[20%]'>
+            <img src="/logoIbooks3.png" alt="Logo IBOOKS" className="h-20"/>
             <div className='lg:container max-w-full w-full h-[80px]'>
-                <FaBookBookmark className='pi-spin w-1' color='white' size={'40'} style={{margin:'5px'}}/>
-                <img src="/logoIbooks.png" alt="Logo IBOOKS" className="w-20 h-20 mx-3 -mt-4"/>
+                <FaBookBookmark className='pi-spin w-1 -ml-3 mt-3' color='black' size={'40'}/>
+
             </div>
             <nav className='flex items-center justify-center'>
-                <NavLink to={'/Home'} className={({isActive }) => isActive ? 'text-white font-semibold capitalize' : 'text-[#d3d3d3] capitalize'}>Página Inicial</NavLink>
-                <NavLink to={'/MeusLivros'} className={({isActive }) => isActive ? 'text-white font-semibold capitalize' : 'text-[#d3d3d3] capitalize'}>Meus Livros</NavLink>
-                <NavLink to={'/SobreNos'} className={({isActive }) => isActive ? 'text-white font-semibold capitalize' : 'text-[#d3d3d3] capitalize'}>Sobre nós</NavLink>
+                <NavLink to={'/Home'} className={({isActive }) => isActive ? 'text-black font-semibold capitalize' : 'text-[#714748] capitalize'}>Página Inicial</NavLink>
+                <NavLink to={'/MeusLivros'} className={({isActive }) => isActive ? 'text-black font-semibold capitalize' : 'text-[#714748] capitalize'}>Meus Livros</NavLink>
+                <NavLink to={'/SobreNos'} className={({isActive }) => isActive ? 'text-black font-semibold capitalize' : 'text-[#714748] capitalize'}>Sobre nós</NavLink>
             </nav>
         </div>
         </div>

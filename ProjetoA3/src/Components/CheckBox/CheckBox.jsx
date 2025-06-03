@@ -1,25 +1,17 @@
 import { useState } from 'react';
 import { Checkbox } from "primereact/checkbox";
 import axios from 'axios';
-import { Button } from 'primereact/button';
 import { useNavigate } from 'react-router';
 
 const MultiSelect = () => {
   const [selected, setSelected] = useState([]);
 
-  const handleCheckboxChange = (option) => {
-    if (selected.includes(option)) {
-      setSelected(selected.filter((item) => item !== option));
-    } else {
-      setSelected([...selected, option]);
-    }
-  }
+  const minhaPersonalidade = selected.join(', ');
 
   const enviarSelecionados = async () => {
   try {
     const response = await axios.post('http://localhost:3000/pergunte-ao-gemini', {
-      selecionados: selected.join(', ')
-      
+      minhaPersonalidade: minhaPersonalidade
     });
     console.log(response.data);
   } catch (error) {
@@ -42,20 +34,20 @@ const MultiSelect = () => {
 
   const navigate = useNavigate();
   const handleButtonClick = () => {
-    if (selected.length > 0) {
-      enviarSelecionados();
-      navigate('/Meuslivros');
-    } else {
-      alert('Por favor, selecione pelo menos uma opção.');
-    }
-  };
+  if (selected.length > 0) {
+    enviarSelecionados();
+    navigate('/Meuslivros', { state: { carregando: true } }); 
+  } else {
+    alert('Por favor, selecione pelo menos uma opção.');
+  }
+};
 
   return (
     <div className="absolute flex-col gap-4 p-4">
        
         <h1 className="font-semibold mb-4 text-black justify-center">Sejam Bem-vindos ao IBOOKS</h1>
 
-        <h2 className="font-semibold mb-4 text-black justify-center">Escolha traços de personalidade compatíveis com a sua:</h2>
+        <h2 className="font-semibold mb-4 text-black justify-center">Iremos recomendar livros com base na sua personalidade, selecione as opções com que se identifica:</h2>
 
         <div>
             {options.map((option) => (
@@ -72,11 +64,14 @@ const MultiSelect = () => {
 
         <div className="mt-4">
             <p className="font-semibold mb-4 text-black justify-center">Selecionados: {selected.join(', ') || 'Nenhum'}</p>
-            <Button label='Enviar' onClick={handleButtonClick}/>    
+            <button 
+                onClick={handleButtonClick} 
+                className="bg-[#ECE0D1] text-black px-4 py-2 rounded hover:bg-[#D1B6A0] transition-colors">
+                Buscar Livro
+            </button>
         </div>
         </div>
   );
-  
 }
 
 export default MultiSelect

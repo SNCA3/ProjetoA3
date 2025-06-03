@@ -1,11 +1,19 @@
+import { Accordion, AccordionTab } from 'primereact/accordion';
+import 'primereact/resources/themes/lara-light-blue/theme.css';
+import 'primereact/resources/primereact.min.css';
+import 'primeicons/primeicons.css';
 
 const CardLivro = ({ titulo, autor, genero, sinopse }) => (
-  <div className="bg-[#ECE0D1] px-6 py-4 mt-2 absolute rounded shadow">
-    <h2 className="text-xl font-bold mb-2">{titulo}</h2>
-    <p className="mb-1"><strong>Autor:</strong> {autor}</p>
-    <p className="mb-1"><strong>Gênero:</strong> {genero}</p>
-    <p className="mt-2"><strong>Sinopse:</strong> {sinopse}</p>
+  <div className="mb-4 mt-4 w-2xl p-4 bg-[#ECE0D1] shadow-lg rounded-lg">
+    <Accordion>
+      <AccordionTab header={titulo}>
+        <p><strong>Autor:</strong> {autor}</p>
+        <p><strong>Gênero:</strong> {genero}</p>
+        <p><strong>Sinopse:</strong> {sinopse}</p>
+      </AccordionTab>
+    </Accordion>
   </div>
 );
 
 export default CardLivro;
+

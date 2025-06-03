@@ -12,7 +12,7 @@ const Navbar = () => {
 
             </div>
             <nav className='flex items-center justify-center'>
-                <NavLink to={'/Home'} className={({isActive }) => isActive ? 'text-black font-semibold capitalize' : 'text-[#714748] capitalize'}>Página Inicial</NavLink>
+                <NavLink to={'/'} className={({isActive }) => isActive ? 'text-black font-semibold capitalize' : 'text-[#714748] capitalize'}>Página Inicial</NavLink>
                 <NavLink to={'/MeusLivros'} className={({isActive }) => isActive ? 'text-black font-semibold capitalize' : 'text-[#714748] capitalize'}>Meus Livros</NavLink>
                 <NavLink to={'/SobreNos'} className={({isActive }) => isActive ? 'text-black font-semibold capitalize' : 'text-[#714748] capitalize'}>Sobre nós</NavLink>
             </nav>

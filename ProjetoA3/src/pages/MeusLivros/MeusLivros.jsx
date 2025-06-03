@@ -3,6 +3,7 @@ import Banner from '../../Components/Banner/Banner';
 import axios from 'axios';
 import CardLivro from '../../Components/CardLivro/CardLivro';
 import { useLocation } from 'react-router-dom';
+import Footer from '../../Components/Footer/Footer';
 
 const MeusLivros = () => {
   const location = useLocation();
@@ -28,7 +29,6 @@ const MeusLivros = () => {
           sinopse: match[4].trim(),
         };
 
-        
         if (!titulosRecomendados.includes(novoLivro.titulo)) {
           setLivro(novoLivro);
           setTitulosRecomendados((prev) => [...prev, novoLivro.titulo]);
@@ -68,6 +68,7 @@ const MeusLivros = () => {
         )}
       </div>
       <Banner />
+      <Footer />
     </div>
   );
 };
